@@ -28,6 +28,16 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<VehicleDatabaseSettings>(
+                Configuration.GetSection(nameof(VehicleDatabaseSettings)));
+
+            services.AddSingleton<IVehicleDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<VehicleDatabaseSettings>>().Value);
+            
+            services.AddSingleton<VehicleService>();
+            services.AddSingleton<LocationService>();
+            services.AddSingleton<DriverService>();
+            
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
