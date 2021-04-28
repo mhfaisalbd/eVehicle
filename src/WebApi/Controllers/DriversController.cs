@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MongoDB.Bson;
 using WebApi.DataOperations.Services;
 using WebApi.Models;
 
@@ -41,6 +42,7 @@ namespace WebApi.Controllers
         [HttpPost]
         public ActionResult<Driver> Create(Driver driver)
         {
+            driver.Id = ObjectId.GenerateNewId().ToString();
             _driverService.Create(driver);
 
             return CreatedAtRoute("GetDriver", new { id = driver.Id.ToString() }, driver);

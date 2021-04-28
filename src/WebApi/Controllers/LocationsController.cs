@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MongoDB.Bson;
 using WebApi.DataOperations.Services;
 using WebApi.Models;
 
@@ -41,6 +42,7 @@ namespace WebApi.Controllers
         [HttpPost]
         public ActionResult<Location> Create(Location location)
         {
+            location.Id = ObjectId.GenerateNewId().ToString();
             _locationService.Create(location);
 
             return CreatedAtRoute("GetLocation", new { id = location.Id.ToString() }, location);
