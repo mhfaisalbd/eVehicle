@@ -1,1 +1,29 @@
-<p>location-details works!</p>
+<div class="jumbotron py-3">
+    <h2 class="display-4 text-center">Locations Details</h2>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <app-location-details-form></app-location-details-form>
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>AREA NAME</th>
+                    <th>LATITUDE</th>
+                    <th>LONGITUDE</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ld of service.list">
+                    <td (click)="populateForm(ld)">{{ld.areaName}}</td>
+                    <td (click)="populateForm(ld)">{{ld.latitude}}</td>
+                    <td (click)="populateForm(ld)">{{ld.longitude}}</td>
+                    <td><span (click)="onDelete(ld.id)"><i class="far fa-trash-alt fa-lg text-danger"></i></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

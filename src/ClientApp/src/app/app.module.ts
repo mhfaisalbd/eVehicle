@@ -9,6 +9,10 @@ import { VehicleDetailsFormComponent } from './vehicle-details/vehicle-details-f
 import { VehicleLocationFormComponent } from './vehicle-details/vehicle-location-form/vehicle-location-form.component';
 import { DriverDetailsComponent } from './driver-details/driver-details.component';
 import { DriverDetailsFormComponent } from './driver-details/driver-details-form/driver-details-form.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { DriverDetailsFormComponent } from './driver-details/driver-details-form
     DriverDetailsFormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
