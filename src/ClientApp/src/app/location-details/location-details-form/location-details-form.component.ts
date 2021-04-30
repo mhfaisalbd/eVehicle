@@ -27,7 +27,7 @@ export class LocationDetailsFormComponent implements OnInit {
         this.insertData(form);
     }
     else{
-
+      this.updateData(form);
     }
   }
 
