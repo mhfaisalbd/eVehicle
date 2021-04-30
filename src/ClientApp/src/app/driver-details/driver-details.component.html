@@ -1,1 +1,29 @@
-<p>driver-details works!</p>
+<div class="jumbotron py-3">
+    <h2 class="display-4 text-center">Drivers Details</h2>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <app-driver-details-form></app-driver-details-form>
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>DRIVER NAME</th>
+                    <th>DRIVING LICENSE</th>
+                    <th>VEHICLE REG. NO.</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let dd of service.list">
+                    <td (click)="populateForm(dd)">{{dd.driverName}}</td>
+                    <td (click)="populateForm(dd)">{{dd.drivingLicense}}</td>
+                    <td (click)="populateForm(dd)">{{service.getVehicle(dd.vehicleId)}}</td>
+                    <td><span (click)="onDelete(dd.id)"><i class="far fa-trash-alt fa-lg text-danger"></i></span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
